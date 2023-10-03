@@ -1,0 +1,14 @@
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.25em;
+}
+
+.scoreboard__element {
+  display: flex;
+}
+
+.scoreboard__title {
+  font-weight: bold;
+  text-align: right;
+}

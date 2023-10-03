@@ -1,0 +1,32 @@
+.game {
+  width: fit-content;
+  border: 2px solid black;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.game__row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.game__cell {
+  width: 120px;
+  height: 120px;
+
+  margin: 5px;
+  background-color: rgb(19, 124, 84);
+  cursor: url("../../img/hammer.svg") 23 17, pointer;
+}
+
+.game__cell_active {
+  background-image: url("../../img/goblin.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.banner {
+  display: none;
+  font-size: 2em;
+  text-align: center;
+}

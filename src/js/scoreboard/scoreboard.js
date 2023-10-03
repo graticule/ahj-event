@@ -1,4 +1,4 @@
-// import "./scoreboard.css";
+import "./scoreboard.css";
 
 export default class Scoreboard {
   constructor(element) {

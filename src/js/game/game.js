@@ -1,5 +1,5 @@
 import Scoreboard from "../scoreboard/scoreboard";
-// import "./game.css";
+import "./game.css";
 
 export default class Game {
   constructor(element, size = 4) {
