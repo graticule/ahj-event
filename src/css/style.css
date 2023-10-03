@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #999;
+}
+
+.game {
+    width: fit-content;
+    border: 2px solid black;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.game__row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.game__cell {
+    width: 120px;
+    height: 120px;
+
+    margin: 5px;
+    background-color: rgb(19, 124, 84);
+    cursor: url(../../img/hammer.svg) 23 17, pointer;
+}
+
+.game__cell_active {
+    background-image: url("../../img/goblin.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.25em;
+}
+
+.scoreboard__element {
+    display: flex;
+}
+
+.scoreboard__title {
+    font-weight: bold;
+    text-align: right;
+}
+
+.scoreboard__number {}
