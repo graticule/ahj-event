@@ -26,11 +26,11 @@ body {
 
     margin: 5px;
     background-color: rgb(19, 124, 84);
-    cursor: url(../../img/hammer.svg) 23 17, pointer;
+    cursor: url(../img/hammer.svg) 23 17, pointer;
 }
 
 .game__cell_active {
-    background-image: url("../../img/goblin.png");
+    background-image: url("../img/goblin.png");
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -50,4 +50,8 @@ body {
     text-align: right;
 }
 
-.scoreboard__number {}
+.banner {
+    display: none;
+    font-size: 2em;
+    text-align: center;
+}

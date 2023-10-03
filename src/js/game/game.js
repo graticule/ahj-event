@@ -6,6 +6,7 @@ export default class Game {
     this.game = element;
     this.field = this.game.querySelector(".field");
     this.scoreboard = new Scoreboard(this.game.querySelector(".scoreboard"));
+    this.banner = this.game.querySelector(".banner");
     this.cells = [];
     this.size = size;
     this.currentPosition = undefined;
@@ -13,7 +14,7 @@ export default class Game {
     this.checkClick = this.checkClick.bind(this);
     this.end = this.end.bind(this);
     this.start = this.start.bind(this);
-    this.stepHandle = this.stepHandle.bind(this);
+    this.failHandle = this.failHandle.bind(this);
     this.init();
   }
 
@@ -50,41 +51,41 @@ export default class Game {
   }
 
   start() {
+    this.banner.style.display = "none";
     this.scoreboard.reset();
     this.field.addEventListener("click", this.checkClick);
     this.startTimer();
   }
 
   startTimer() {
-    this.timer = setInterval(this.stepHandle, 1000);
+    this.changePosition();
+    this.timer = setTimeout(this.failHandle, 1000);
   }
 
-  stepHandle() {
+  failHandle() {
     this.scoreboard.fail += 1;
     if (this.scoreboard.fail >= 5) {
       clearInterval(this.timer);
       this.end();
       return;
     }
-    this.changePosition();
+    this.startTimer();
   }
 
   checkClick(e) {
+    clearInterval(this.timer);
     const active = e.target.closest(".game__cell_active");
     if (active) {
       this.scoreboard.score += 1;
-      if (this.timer) {
-        clearInterval(this.timer);
-      }
-      this.changePosition();
+      this.startTimer();
     } else {
-      this.stepHandle();
+      this.failHandle();
     }
-    this.startTimer();
   }
 
   end() {
     this.field.removeEventListener("click", this.checkClick);
+    this.banner.style.display = "block";
     this.cells[this.currentPosition].classList.remove("game__cell_active");
     this.currentPosition = undefined;
   }
