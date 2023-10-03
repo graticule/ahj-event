@@ -73,7 +73,12 @@ export default class Game {
   }
 
   checkClick(e) {
-    clearInterval(this.timer);
+    const cell = e.target.closest(".game__cell");
+    if (cell) {
+      clearInterval(this.timer);
+    } else {
+      return;
+    }
     const active = e.target.closest(".game__cell_active");
     if (active) {
       this.scoreboard.score += 1;
